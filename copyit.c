@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include <signal.h>
 
@@ -43,7 +44,6 @@ int main (int argumX, char * argumY[])
 	signal(alarme, mensagem);
 
 	//verificando excessões
-
 	// se menos de 3 argumentos forem digitados
 	if (argumX > 3){
 		printf(" ________________________________________\n");
