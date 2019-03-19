@@ -91,7 +91,7 @@ int main (int argumX, char * argumY[])
 		memset(l,'\0',sizeof(l));
 
 		// lendo os dados
-		while ((n=read(aOrigem,l,sizeof(l)))<0){
+		while ((n=fread(aOrigem,l,sizeof(l)))<0){
 			// reconectando
 			if (errno==EINTR){
 				continue;
@@ -112,7 +112,7 @@ int main (int argumX, char * argumY[])
 	  
 		
 		// escrevendo no arquivo destino
-		while (write(aDest,l,n)<0){
+		while (fwrite(aDest,l,n)<0){
 			// reconectar
 			if (errno==EINTR){
 				continue;
@@ -127,7 +127,7 @@ int main (int argumX, char * argumY[])
 
 	// fechando os arquivos
 	close(aOrigem);
-	close(aDest);
+	pclose(aDest);
 	
 	// se acontecer tudo normalmente
 	printf(" _____________________________________________________\n");
